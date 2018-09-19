@@ -13,7 +13,7 @@ const ImportData = db.define('import_data', {
   pets: Sequelize.ARRAY(Sequelize.STRING)
 })
 
-const parseStream = through2.obj(function(chunk, enc, done) {
+const parseStream = through2.obj((chunk, enc, done) => {
   this.push({
     firstName: chunk[0],
     lastName: chunk[1],
