@@ -25,7 +25,7 @@ const parseStream = through2.obj((chunk, enc, done) => {
 
 const addToDbStream = through2.obj((chunk, enc, done) => {
   ImportData.create(chunk)
-    .then(function handleSuccess() {
+    .then(() => {
       done()
     })
 })
