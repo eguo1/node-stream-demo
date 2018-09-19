@@ -1,0 +1,19 @@
+{
+  "name": "node-stream-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eric guo",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^3.0.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.38.1",
+    "through2": "^2.0.3"
+  }
+}
