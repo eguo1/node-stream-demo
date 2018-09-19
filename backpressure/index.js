@@ -34,6 +34,7 @@ server.on('request', (req, res, next) => {
     .on('error', err => {
       console.error(err)
     })
+    .on('end', () => res.end('done maybe?'))
 })
 
 const startServer = () => {
