@@ -23,14 +23,19 @@ const parseStream = through2.obj(function(chunk, enc, done) {
   done()
 })
 
+const addToDbStream = through2.obj(function(chunk, enc, done) {
+  ImportData.create(chunk)
+    .then(function handleSuccess() {
+      done()
+    })
+})
+
 server.on('request', (req, res, next) => {
   const csv = fs.createReadStream('./file.csv')
   csv
     .pipe(csvParse({ auto_parsing: true }))
     .pipe(parseStream)
-    .on('data', chunk => {
-      return ImportData.create(chunk)
-    })
+    .pipe(addToDbStream)
     .on('error', err => {
       console.error(err)
     })
